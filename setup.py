@@ -4,7 +4,7 @@ from pathlib import Path
 this_directory = Path(__file__).parent
 
 # Read README
-long_description = "AutoImpute - Missing Data Imputation Framework for Machine Learning"
+long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 # Read requirements (with fallback for wheel builds)
 requirements_file = this_directory / "requirements.txt"
