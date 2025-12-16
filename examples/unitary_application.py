@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-from mlimputer.imputation import MLimputer 
-import mlimputer.parameters as params      
+from autoimpute.imputation import AutoImputer
+import autoimpute.parameters as params      
 
 import warnings
 warnings.filterwarnings("ignore", category=Warning) #-> For a clean console
@@ -64,7 +64,7 @@ test_knn = mli.transform_imput(X=test)
 
 # Imputation Example 2 : RandomForest
 
-mli = MLimputer(imput_model = "RandomForest", imputer_configs = hparameters)
+mli = AutoImputer(imput_model = "RandomForest", imputer_configs = hparameters)
 mli.fit_imput(X=train)
 train_rf = mli.transform_imput(X=train)
 test_rf = mli.transform_imput(X=test)

@@ -2,9 +2,9 @@ from typing import List, Dict, Union
 import pandas as pd
 from sklearn.base import BaseEstimator
 from atlantic.processing.encoders import AutoLabelEncoder
-from mlimputer.imputation import MLimputer                
-import mlimputer.cross_val as cv                    
-from mlimputer.metrics import metrics_regression, metrics_classification 
+from autoimpute.imputation import AutoImputer                
+import autoimpute.cross_val as cv                    
+from autoimpute.metrics import metrics_regression, metrics_classification 
 
 class Evaluator:
     """

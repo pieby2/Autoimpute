@@ -1,21 +1,37 @@
 import setuptools
-# read the contents of your README file
 from pathlib import Path
+
 this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text()
+
+# Read README
+long_description = "AutoImpute - Missing Data Imputation Framework for Machine Learning"
+
+# Read requirements (with fallback for wheel builds)
+requirements_file = this_directory / "requirements.txt"
+if requirements_file.exists():
+    install_requires = requirements_file.read_text().strip().split("\n")
+else:
+    # Fallback for wheel builds from sdist
+    install_requires = [
+        "atlantic>=1.1.80",
+        "catboost>=1.1.1",
+        "xgboost>=1.7.3",
+        "lightgbm>=3.3.5",
+        "matplotlib>=3.5.0",
+        "seaborn>=0.11.0",
+    ]
 
 setuptools.setup(
-    name="mlimputer",
-    version="1.0.80",
-    description="MLimputer - Missing Data Imputation Framework for Machine Learning",
+    name="autoimpute",
+    version="1.0.81",
+    description="AutoImpute - Missing Data Imputation Framework for Machine Learning",
     long_description=long_description,      
     long_description_content_type="text/markdown",
-    url="https://github.com/TsLu1s/MLimputer",
-    author="Luís Santos",
-    author_email="luisf_ssantos@hotmail.com",
+    url="https://github.com/TsLu1s/AutoImpute",
+    author="Prakhar",
+    author_email="Prakharpragyan1000@gmail.com",
     license="MIT",
     classifiers=[
-        # Indicate who your project is intended for
         "Intended Audience :: Education",
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
@@ -25,26 +41,24 @@ setuptools.setup(
         "Intended Audience :: Telecommunications Industry",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Topic :: Scientific/Engineering :: Information Analysis",
-
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
     ],
-    py_modules=["mlimputer"],
     packages=setuptools.find_packages(where="src"),
     package_dir={"": "src"},  
     keywords=[
         "data science",
         "machine learning",
-        "data preprecessing",
+        "data preprocessing",
         "null imputation",
         "predictive null imputation",
         "multiple null imputation",
         "automated machine learning",
     ],           
-    install_requires=open("requirements.txt").readlines(),
+    install_requires=install_requires,
+    python_requires=">=3.8",
 )

@@ -5,7 +5,7 @@ from typing import List
 from sklearn.base import BaseEstimator
 import warnings
 from sklearn.exceptions import ConvergenceWarning
-from mlimputer.metrics import metrics_regression, metrics_classification 
+from autoimpute.metrics import metrics_regression, metrics_classification 
 
 def cross_validation(
     X: pd.DataFrame,

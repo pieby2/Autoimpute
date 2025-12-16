@@ -70,6 +70,12 @@ def imputer_parameters():
                     'l2_leaf_reg': 3,
                     'border_count': 254,
                     'subsample': 1
+                },
+                'Linear': {
+                    'alpha': 1.0,
+                    'fit_intercept': True,
+                    'solver': 'auto',
+                    'random_state': 42
                 }
             }
     

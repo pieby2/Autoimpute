@@ -1,12 +1,13 @@
 import pandas as pd
-from mlimputer.models_imputation import (RandomForestImputation,         
+from autoimpute.models_imputation import (RandomForestImputation,         
                                          ExtraTreesImputation,
                                          GBRImputation,
                                          KNNImputation,
                                          XGBoostImputation,
                                          CatBoostImputation,
-                                         LightGBMImputation)
-from mlimputer.parameters import imputer_parameters                      
+                                         LightGBMImputation,
+                                         LinearImputation)
+from autoimpute.parameters import imputer_parameters                      
  
 parameters=imputer_parameters()
 
@@ -66,6 +67,11 @@ def imput_models(train : pd.DataFrame,
     elif algo == "Lightgbm":
         lb_params = parameters['Lightgbm']
         model = LightGBMImputation(**lb_params)
+        model.fit(X_train, y_train)
+    
+    elif algo == "Linear":
+        linear_params = parameters['Linear']
+        model = LinearImputation(**linear_params)
         model.fit(X_train, y_train)
         
     else:

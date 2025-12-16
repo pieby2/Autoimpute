@@ -7,8 +7,8 @@ from sklearn.tree import DecisionTreeClassifier
 
 from xgboost import XGBRegressor
 
-from mlimputer.evaluation import Evaluator                     
-from mlimputer.parameters import imputer_parameters                     
+from autoimpute.evaluation import Evaluator                     
+from autoimpute.parameters import imputer_parameters                     
 
 import warnings
 warnings.filterwarnings("ignore", category=Warning) #-> For a clean console
