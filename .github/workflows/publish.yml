@@ -37,9 +37,8 @@ jobs:
     runs-on: ubuntu-latest
 
 
-
     permissions:
-      id-token: write
+      contents: read
 
     steps:
     - name: Download all the dists
@@ -51,6 +50,7 @@ jobs:
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         repository-url: https://test.pypi.org/legacy/
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
 
   publish-to-pypi:
     name: Publish Python 🐍 distribution to PyPI
