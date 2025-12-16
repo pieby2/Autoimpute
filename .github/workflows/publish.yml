@@ -36,9 +36,7 @@ jobs:
     - build
     runs-on: ubuntu-latest
 
-    environment:
-      name: testpypi
-      url: https://test.pypi.org/p/autoimpute
+
 
     permissions:
       id-token: write
@@ -61,9 +59,7 @@ jobs:
     - build
     runs-on: ubuntu-latest
 
-    environment:
-      name: pypi
-      url: https://pypi.org/p/autoimpute
+
 
     permissions:
       id-token: write
