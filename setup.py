@@ -22,7 +22,7 @@ else:
     ]
 
 setuptools.setup(
-    name="autoimpute",
+    name="autoimpute-lib",
     version="1.0.81",
     description="AutoImpute - Missing Data Imputation Framework for Machine Learning",
     long_description=long_description,      
